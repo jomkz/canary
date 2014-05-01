@@ -2,6 +2,7 @@
 
 Canary is a dynamic DNS update utility written using Sails.js.
 
+![Canary](http://f870d4d1e656b386e423-644dd79aec9558152263f90d87ffdef9.r61.cf1.rackcdn.com/canary-sm.png "Canary")
 
 ### Project Dependencies
 
