@@ -1,0 +1,9 @@
+---
+# file: group_vars/all
+
+application_dir: /vagrant/widowmaker
+application_exe: server.js
+application_log: "{{ application_dir }}/server.log"
+nginx_document_root: "{{ application_dir }}/static"
+node_env: development
+node_exe: node
