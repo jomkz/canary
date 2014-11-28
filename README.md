@@ -1,6 +1,6 @@
 # Canary
 
-Canary is a dynamic DNS update utility written using Sails.js.
+Canary is a dynamic DNS update utility written in Node.js and using the Sails.js framework.
 
 ![Canary](http://f870d4d1e656b386e423-644dd79aec9558152263f90d87ffdef9.r61.cf1.rackcdn.com/canary-sm.png "Canary")
 
@@ -8,9 +8,9 @@ Canary is a dynamic DNS update utility written using Sails.js.
 
 The following tools need to be in place for a working development environment.
 
-* VirtualBox 4.3.10
-* Vagrant 1.5.4
-* Ansible 1.5.5
+* VirtualBox
+* Vagrant
+* Ansible
 
 
 ### Development Environment
@@ -19,19 +19,18 @@ A Vagrant configuration file has been provided to set up a development instance 
 
 Clone the repository and navigate to the project directory.
 
-First, ensure that the permissions on the Vagrant private key are set correctly and launch the instance.
+First, launch the instance.
 
-    $ chmod 600 Vagrant.pem
     $ vagrant up
 
 Next, configure the Vagrant instance for development using Ansible. Be patient, the process could take a while to finish.
 
-    $ ansible-playbook site.yml
+    $ ansible-playbook deploy.yml
 
 Once configured, connect to the vagrant instance and get to work. The application source is mounted in the vagrant user's home directory.
 
     $ vagrant ssh
-    $ cd canary
+    $ cd /usr/src/canary
 
 Run the application in development mode.
 
@@ -53,4 +52,4 @@ Generate the application coverage report.
 
 Development has occurred on the following platforms:
 
-* Ubuntu 12.04 LTS (Precise)
+* Ubuntu 14.04 LTS (Trusty)
