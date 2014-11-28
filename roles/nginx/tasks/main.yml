@@ -1,5 +1,4 @@
 ---
-# file: roles/nginx/tasks/main.yml
 
 - name: ensure required packages are present
   apt: pkg={{ item }} update_cache=yes
@@ -7,5 +6,5 @@
     - nginx
 
 - name: ensure the main configuration file is present
-  copy: src=etc/nginx/nginx.conf dest=/etc/nginx/nginx.conf mode=0644
+  copy: src=nginx.conf dest=/etc/nginx/nginx.conf mode=0644
   notify: restart nginx

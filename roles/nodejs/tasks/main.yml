@@ -1,5 +1,4 @@
 ---
-# file: roles/nodejs/tasks/main.yml
 
 - name: ensure the official Node.js package repository is configured
   apt_repository: repo='ppa:chris-lea/node.js'

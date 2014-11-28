@@ -1,5 +1,4 @@
 ---
-# file: roles/common/tasks/main.yml
 
 - name: ensure common packages are present
   apt: pkg={{ item }} update_cache=yes
@@ -11,7 +10,7 @@
   command: update-alternatives --set editor /usr/bin/vim.basic
 
 - name: ensure the bashrc file is present
-  copy: src=home/bashrc dest=/home/vagrant/.bashrc mode=0700 owner=vagrant group=vagrant
+  copy: src=bashrc dest=/home/{{ ansible_env.SUDO_USER }}/.bashrc mode=0700
 
 - name: Dump all variables
   connection: local
