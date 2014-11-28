@@ -1,4 +1,6 @@
-- name: setup Canary nodes
+---
+
+- name: Setup Canary application nodes
   hosts: all
   gather_facts: yes
   sudo: yes

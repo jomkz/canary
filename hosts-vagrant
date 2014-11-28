@@ -1,0 +1,1 @@
+n01 ansible_ssh_host=192.168.9.10  ansible_ssh_user=vagrant    ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
