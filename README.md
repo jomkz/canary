@@ -1,55 +1,51 @@
 # Canary
 
-Canary is a dynamic DNS update utility written in Node.js and using the Sails.js framework.
+Canary verifies an arbitrary DNS record against the current "public" IP address.
 
-![Canary](http://f870d4d1e656b386e423-644dd79aec9558152263f90d87ffdef9.r61.cf1.rackcdn.com/canary-sm.png "Canary")
+## Usage
 
-### Project Dependencies
+Run the container and pass in the FQDN to verify.
 
-The following tools need to be in place for a working development environment.
+```
+$ docker run -it --rm \
+    -e CANARY_FQDN=example.com \
+    canary
+```
 
-* VirtualBox
-* Vagrant
-* Ansible
+## Options
 
+By default, canary uses `icanhazip.com` to look up the public facing IP address
+for the node. This can be overridden with the `PUBLIC_IP_QUERY_HOST` variable.
 
-### Development Environment
+```
+$ docker run -it --rm \
+    -e CANARY_FQDN=example.com \
+    -e PUBLIC_IP_QUERY_HOST=example.com \
+    canary
+```
 
-A Vagrant configuration file has been provided to set up a development instance in VirtualBox. An Ansible playbook has also been provided to aid in the initial setup of the instance.
+## License
 
-Clone the repository and navigate to the project directory.
+```
+The MIT License (MIT)
 
-First, launch the instance.
+Copyright (c) 2014 John McKenzie
 
-    $ vagrant up
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Next, configure the Vagrant instance for development using Ansible. Be patient, the process could take a while to finish.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-    $ ansible-playbook deploy.yml
-
-Once configured, connect to the vagrant instance and get to work. The application source is mounted in the vagrant user's home directory.
-
-    $ vagrant ssh
-    $ cd /usr/src/canary
-
-Run the application in development mode.
-
-    $ sails lift
-
-
-### Testing
-
-Run the application tests.
-
-    $ sails run tests
-
-Generate the application coverage report.
-
-    $ sails run coverage
-
-
-### Platforms
-
-Development has occurred on the following platforms:
-
-* Ubuntu 14.04 LTS (Trusty)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
