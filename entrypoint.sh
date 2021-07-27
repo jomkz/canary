@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PUBLIC_IP_QUERY_HOST="${PUBLIC_IP_QUERY_HOST:-icanhazip.com}"
 
