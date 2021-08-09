@@ -27,8 +27,8 @@ Flags:
 	rootCmd.AddCommand(queryCmd)
 }
 
-// executeQuery will run query the public facing IP address for the host and
-// the IP address for the given FQDN.
+// executeQuery will query the public facing IP address for the host and the IP
+// address for the given FQDN.
 func executeQuery(cmd *cobra.Command, args []string) error {
 	pip, err := engine.PublicAddress()
 	if err != nil {
